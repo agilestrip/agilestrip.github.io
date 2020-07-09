@@ -54,7 +54,6 @@ const config = {
 
 const strips_index = require('./src/strips/index.json');
 _.each(strips_index, (slug, index) => {
-  const issue = index + 1;
   const manifest = require(`./src/strips/${slug}/manifest.json`);
 
   const title = manifest.title;
@@ -69,13 +68,13 @@ _.each(strips_index, (slug, index) => {
     title: manifest.title,
     image: manifest.image,
     description,
-    next_issue: index + 1 < strips_index.length ? issue + 1 : 0,
-    prev_issue: index > 0 ? issue - 1 : 0,
+    next_issue: index + 1 < strips_index.length ? strips_index[index + 1] : undefined,
+    prev_issue: index > 0 ? strips_index[index - 1] : undefined,
   }
 
   config.plugins.push(new HtmlWebpackPlugin({
     template: './src/html/index.html',
-    filename: `${issue}/index.html`,
+    filename: `${slug}/index.html`,
     ...context,
   }));
 
@@ -89,45 +88,4 @@ _.each(strips_index, (slug, index) => {
   }
 });
 
-// read add-ons from addons folder
-/*
-const addons = getDirectories('./src/addons');
-const addons_directory = [];
-_.each(addons, slug => {
-  const manifest = require(`./src/addons/${slug}/manifest.json`);
-
-  const summary = md.render(
-    fs.readFileSync(`./src/addons/${slug}/summary.md`, 'utf8'));
-  const description = md.render(
-    fs.readFileSync(`./src/addons/${slug}/description.md`, 'utf8'));
-
-  const last_updated = moment(manifest.last_updated).format('LL');
-
-  config.plugins.push(new HtmlWebpackPlugin({
-    template: './src/html/addon_template.html',
-    filename: `addons/${slug}/index.html`,
-    title: manifest.title,
-    author: manifest.author.name,
-    avatar: manifest.author.avatar,
-    last_updated,
-    summary,
-    description,
-  }));
-
-  addons_directory.push({
-    title: manifest.title,
-    author: manifest.author.name,
-    summary,
-    last_updated,
-    link: `/addons/${slug}`,
-  });
-});
-
-// add generic addons page
-config.plugins.push(new HtmlWebpackPlugin({
-  template: './src/html/addons.html',
-  filename: `addons/index.html`,
-  addons: addons_directory,
-}));
-*/
 module.exports = config;
