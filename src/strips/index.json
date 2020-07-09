@@ -1,4 +1,9 @@
 [
+  "inspect-and-adapt",
+  "scope-creep",
+  "output-vs-outcome",
+  "spread-too-thin",
   "next-ticket",
-  "next-ticket-2"
+  "new-feature",
+  "single-sided-development"
 ]
