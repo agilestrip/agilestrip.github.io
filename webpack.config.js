@@ -47,7 +47,7 @@ const config = {
     new webpack.ProgressPlugin(),
     new CleanWebpackPlugin(),
     new CopyPlugin([
-      'CNAME'
+      'CNAME', 'src/agile-strip.jpg'
     ]),
   ],
 };
