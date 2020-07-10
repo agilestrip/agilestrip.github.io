@@ -59,6 +59,7 @@ _.each(strips_index, (slug, index) => {
   const title = manifest.title;
   const description = md.render(
     fs.readFileSync(`./src/strips/${slug}/${manifest.description}`, 'utf8'));
+  const og_description = fs.readFileSync(`./src/strips/${slug}/${manifest.description}`, 'utf8').split('\n')[0];
 
   config.plugins.push(new CopyPlugin([
     `./src/strips/${slug}/${manifest.image}`
@@ -68,6 +69,7 @@ _.each(strips_index, (slug, index) => {
     title: manifest.title,
     image: manifest.image,
     description,
+    og_description: og_description,
     next_issue: index + 1 < strips_index.length ? strips_index[index + 1] : undefined,
     prev_issue: index > 0 ? strips_index[index - 1] : undefined,
   }
