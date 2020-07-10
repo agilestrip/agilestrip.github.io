@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Agile strips: Inspecting and drawing</title>
+  <title>Agile strip: <%= htmlWebpackPlugin.options.title %></title>
+  <meta name="description" content="Agile with the best intentions, yet so cold that dies on the spot"/>
+  <meta name="keywords" content="agile,comics,scrum,kanban"/>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,500;0,900;1,400&display=swap" rel="stylesheet">
+
   <meta property="og:site_name" content="Agile strip">
 
   <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %>">
@@ -205,6 +211,13 @@
     .u-fontWeight-important { font-weight: 900; }
 
     .u-section-header   { text-align: center; }
+
+    @media (max-width: 780px) {
+      .o-card { padding: 1em; }
+      .o-image { width: 100%; }
+      .o-button, button { min-width: 3rem; }
+      .u-display-none\@mobile { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -285,9 +298,9 @@
     <div class="o-card">
       <div class="o-flex">
         <% if (htmlWebpackPlugin.options.prev_issue) { %>
-        <a href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item o-button">&lt; prev</a>
+        <a href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item o-button">&lt;<span class="u-display-none@mobile"> prev</span></a>
         <% } else { %>
-        <button href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item" disabled>&lt; prev</button>
+        <button href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item" disabled>&lt;<span class="u-display-none@mobile"> prev</span></button>
         <% } %>
         <div class="o-flex__item o-flex__grow">
           <input type="text" placeholder="Search for an agile strip"/>
@@ -303,14 +316,15 @@
           </div>
         </div>
         <% if (htmlWebpackPlugin.options.next_issue) { %>
-        <a href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item o-button">next &gt;</a>
+        <a href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item o-button"><span class="u-display-none@mobile">next </span>&gt;</a>
         <% } else { %>
-        <button href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item" disabled>next &gt;</button>
+        <button href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item" disabled><span class="u-display-none@mobile">next </span>&gt;</button>
         <% } %>
       </div>
     </div>
     <div class="o-card">
       <img src="/<%= htmlWebpackPlugin.options.image %>" class="o-image"/>
+      <h3 class="u-color-muted"><%= htmlWebpackPlugin.options.title %></h3>
       <div class="u-color-muted">
       <%= htmlWebpackPlugin.options.description %>
       </div>
@@ -337,9 +351,9 @@
     <div class="o-card">
       <div class="o-flex">
         <% if (htmlWebpackPlugin.options.prev_issue) { %>
-        <a href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item o-button">&lt; prev</a>
+        <a href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item o-button">&lt;<span class="u-display-none@mobile"> prev</span></a>
         <% } else { %>
-        <button href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item" disabled>&lt; prev</button>
+        <button href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item" disabled>&lt;<span class="u-display-none@mobile"> prev</span></button>
         <% } %>
         <div class="o-flex__item o-flex__grow">
           <input type="text" placeholder="Search for an agile strip"/>
@@ -355,9 +369,9 @@
           </div>
         </div>
         <% if (htmlWebpackPlugin.options.next_issue) { %>
-        <a href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item o-button">next &gt;</a>
+        <a href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item o-button"><span class="u-display-none@mobile">next </span>&gt;</a>
         <% } else { %>
-        <button href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item" disabled>next &gt;</button>
+        <button href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item" disabled><span class="u-display-none@mobile">next </span>&gt;</button>
         <% } %>
       </div>
     </div>
