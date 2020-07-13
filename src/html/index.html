@@ -11,7 +11,7 @@
 
   <meta property="og:site_name" content="Agile strip">
 
-  <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %>">
+  <meta property="og:title" content="Agile Strip: <%= htmlWebpackPlugin.options.title %>">
   <meta property="og:description" content="<%= htmlWebpackPlugin.options.og_description %>">
   <meta property="og:url" content="https://agile-st.rip/<%= htmlWebpackPlugin.options.slug %>">
   <meta property="og:image" content="https://agile-st.rip/<%= htmlWebpackPlugin.options.image %>">
@@ -315,17 +315,8 @@
         <button href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item" disabled>&lt;<span class="u-display-none@mobile"> prev</span></button>
         <% } %>
         <div class="o-flex__item o-flex__grow">
-          <input type="text" placeholder="Search for an agile strip"/>
-          <div class="o-overlay o-overlay--bottom o-card" style="display: none;">
-            <a href="#" class="o-flex">
-              <img src="new-feature.jpg" class="o-flex__item" width="80px"/>
-              <p class="o-flex__item o-flex__grow">New feature roll out!</p>
-            </a>
-            <a href="#" class="o-flex">
-              <img src="captain-product-nextticket.jpg" class="o-flex__item" width="80px"/>
-              <p class="o-flex__item o-flex__grow">Next open ticket</p>
-            </a>
-          </div>
+          <input type="text" placeholder="Search for an agile strip" id="js-search-top"/>
+          <div class="o-overlay o-overlay--bottom o-card" style="display: none;" id="js-results-top"></div>
         </div>
         <% if (htmlWebpackPlugin.options.next_issue) { %>
         <a href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item o-button">#<%= htmlWebpackPlugin.options.next_index %> <span class="u-display-none@mobile">next </span>&gt;</a>
@@ -368,17 +359,8 @@
         <button href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item" disabled>&lt;<span class="u-display-none@mobile"> prev</span></button>
         <% } %>
         <div class="o-flex__item o-flex__grow">
-          <input type="text" placeholder="Search for an agile strip"/>
-          <div class="o-overlay o-overlay--top o-card" style="display: none;">
-            <a href="#" class="o-flex">
-              <img src="new-feature.jpg" class="o-flex__item" width="80px"/>
-              <p class="o-flex__item o-flex__grow">New feature roll out!</p>
-            </a>
-            <a href="#" class="o-flex">
-              <img src="captain-product-nextticket.jpg" class="o-flex__item" width="80px"/>
-              <p class="o-flex__item o-flex__grow">Next open ticket</p>
-            </a>
-          </div>
+          <input type="text" placeholder="Search for an agile strip" id="js-search-bottom"/>
+          <div class="o-overlay o-overlay--top o-card" style="display: none;" id="js-results-bottom"></div>
         </div>
         <% if (htmlWebpackPlugin.options.next_issue) { %>
         <a href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item o-button">#<%= htmlWebpackPlugin.options.next_index %> <span class="u-display-none@mobile">next </span>&gt;</a>
@@ -429,7 +411,7 @@
       share(
         'https://twitter.com/share?' +
         'url=' + encodeURIComponent(share_url) +
-        '&text=' + encodeURIComponent('<%= htmlWebpackPlugin.options.og_description %>')
+        '&text=' + encodeURIComponent('Agile Strip: ' + '<%= htmlWebpackPlugin.options.escapeJS(htmlWebpackPlugin.options.og_description) %>' + ' #agile #scrum #comics')
       );
     };
     window.shareLinkedin = function() {
@@ -437,14 +419,47 @@
         'https://www.linkedin.com/shareArticle?' +
         'mini=true&' +
         'url=' + encodeURIComponent(share_url) +
-        '&title=' + encodeURIComponent('<%= htmlWebpackPlugin.options.title %>') +
-        '&summary=' + encodeURIComponent('<%= htmlWebpackPlugin.options.og_description %>')
+        '&title=' + encodeURIComponent('Agile Strip: ' + '<%= htmlWebpackPlugin.options.escapeJS(htmlWebpackPlugin.options.title) %>') +
+        '&summary=' + encodeURIComponent('<%= htmlWebpackPlugin.options.escapeJS(htmlWebpackPlugin.options.og_description) %>' + ' #agile #scrum #comics')
       );
     };
     window.copyURL = function() {
       copyToClipboard(share_url);
       $('.js-copy-message').fadeIn(100).delay(1450).fadeOut(250);
     };
+
+    // ------- Search -------
+
+    var search = JSON.parse('<%= htmlWebpackPlugin.options.search_json %>');
+    function bindSearch(el_input, el_results) {
+      $(el_input).keyup(function() {
+        var text = ($.trim($(this).val())).toLowerCase();
+        if (!text) {
+          $(el_results).hide();
+        } else {
+          var html = '';
+          $.each(search, function(index, value) {
+            if (value.text.indexOf(text) >= 0) {
+              html += [
+              '<a href="/' + value.slug + '" class="o-flex">',
+              '  <img src="/' + value.image + '" class="o-flex__item" width="80px"/>',
+              '  <p class="o-flex__item o-flex__grow">#' + value.index + ' ' + value.title + '</p>',
+              '</a>'
+              ].join('\n');
+            }
+          });
+          if (html) {
+            $(el_results).html(html);
+            $(el_results).show();
+          } else {
+            $(el_results).hide();
+          }
+        }
+      });
+    }
+
+    bindSearch('#js-search-top', '#js-results-top');
+    bindSearch('#js-search-bottom', '#js-results-bottom');
   </script>
 </body>
 </html>
