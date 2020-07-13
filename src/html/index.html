@@ -11,7 +11,7 @@
 
   <meta property="og:site_name" content="Agile strip">
 
-  <meta property="og:title" content="Agile Strip: <%= htmlWebpackPlugin.options.title %>">
+  <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %>">
   <meta property="og:description" content="<%= htmlWebpackPlugin.options.og_description %>">
   <meta property="og:url" content="https://agile-st.rip/<%= htmlWebpackPlugin.options.slug %>">
   <meta property="og:image" content="https://agile-st.rip/<%= htmlWebpackPlugin.options.image %>">
@@ -411,7 +411,7 @@
       share(
         'https://twitter.com/share?' +
         'url=' + encodeURIComponent(share_url) +
-        '&text=' + encodeURIComponent('Agile Strip: ' + '<%= htmlWebpackPlugin.options.escapeJS(htmlWebpackPlugin.options.og_description) %>' + ' #agile #scrum #comics')
+        '&text=' + encodeURIComponent('<%= htmlWebpackPlugin.options.escapeJS(htmlWebpackPlugin.options.og_description) %>' + ' #agile #scrum #comics #agilestrip')
       );
     };
     window.shareLinkedin = function() {
@@ -419,8 +419,8 @@
         'https://www.linkedin.com/shareArticle?' +
         'mini=true&' +
         'url=' + encodeURIComponent(share_url) +
-        '&title=' + encodeURIComponent('Agile Strip: ' + '<%= htmlWebpackPlugin.options.escapeJS(htmlWebpackPlugin.options.title) %>') +
-        '&summary=' + encodeURIComponent('<%= htmlWebpackPlugin.options.escapeJS(htmlWebpackPlugin.options.og_description) %>' + ' #agile #scrum #comics')
+        '&title=' + encodeURIComponent('<%= htmlWebpackPlugin.options.escapeJS(htmlWebpackPlugin.options.title) %>') +
+        '&summary=' + encodeURIComponent('<%= htmlWebpackPlugin.options.escapeJS(htmlWebpackPlugin.options.og_description) %>' + ' #agile #scrum #comics #agilestrip')
       );
     };
     window.copyURL = function() {
