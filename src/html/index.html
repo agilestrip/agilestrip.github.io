@@ -351,11 +351,11 @@
       <div class="o-flex">
         <div class="o-flex__item u-color-disabled">Share:</div>
         <div class="o-flex__item o-flex__grow">
-          <button class="is-icon" title="Share on Instagram"><svg class="o-icon"><use xlink:href="#instagram"/></svg></button>
-          &nbsp;&nbsp;&nbsp;&nbsp;<button class="is-icon" title="Share on Linkedin"><svg class="o-icon"><use xlink:href="#linkedin"/></svg></button>
-          &nbsp;&nbsp;&nbsp;&nbsp;<button class="is-icon" title="Share on Facebook"><svg class="o-icon"><use xlink:href="#facebook"/></svg></button>
-          &nbsp;&nbsp;&nbsp;&nbsp;<button class="is-icon" title="Share on Twitter"><svg class="o-icon"><use xlink:href="#twitter"/></svg></button>
-          &nbsp;&nbsp;&nbsp;&nbsp;<button class="is-icon" title="Copy link to page"><svg class="o-icon"><use xlink:href="#link"/></svg></button>
+          <button class="is-icon" title="Share on Linkedin" onclick="window.shareLinkedin()"><svg class="o-icon"><use xlink:href="#linkedin"/></svg></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;<button class="is-icon" title="Share on Facebook" onclick="window.shareFacebook()"><svg class="o-icon"><use xlink:href="#facebook"/></svg></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;<button class="is-icon" title="Share on Twitter" onclick="window.shareTwitter()"><svg class="o-icon"><use xlink:href="#twitter"/></svg></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;<button class="is-icon" title="Copy link to page" onclick="window.copyURL()"><svg class="o-icon"><use xlink:href="#link"/></svg></button>
+          <span class="js-copy-message" style="display: none;">✅ copied to clipboard</span>
         </div>
       </div>
     </div>
@@ -396,5 +396,55 @@
   </div>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    var share_url = 'https://agile-st.rip/<%= htmlWebpackPlugin.options.slug %>';
+    function copyToClipboard(str) {
+      var el = document.createElement('textarea');
+      el.value = str;
+      el.setAttribute('readonly', '');
+      el.style.position = 'absolute';
+      el.style.left = '-9999px';
+      document.body.appendChild(el);
+      var selected = document.getSelection().rangeCount > 0
+        ? document.getSelection().getRangeAt(0)
+        : false;
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      if (selected) {
+        document.getSelection().removeAllRanges();
+        document.getSelection().addRange(selected);
+      }
+    }
+    function share(url) {
+      window.open(url, 'sharer', 'toolbar=0,status=0,width=600,height=400');
+    }
+    window.shareFacebook = function() {
+      share(
+        'https://www.facebook.com/sharer.php?' +
+        'u=' + encodeURIComponent(share_url)
+      );
+    };
+    window.shareTwitter = function() {
+      share(
+        'https://twitter.com/share?' +
+        'url=' + encodeURIComponent(share_url) +
+        '&text=' + encodeURIComponent('<%= htmlWebpackPlugin.options.og_description %>')
+      );
+    };
+    window.shareLinkedin = function() {
+      share(
+        'https://www.linkedin.com/shareArticle?' +
+        'mini=true&' +
+        'url=' + encodeURIComponent(share_url) +
+        '&title=' + encodeURIComponent('<%= htmlWebpackPlugin.options.title %>') +
+        '&summary=' + encodeURIComponent('<%= htmlWebpackPlugin.options.og_description %>')
+      );
+    };
+    window.copyURL = function() {
+      copyToClipboard(share_url);
+      $('.js-copy-message').fadeIn(100).delay(1450).fadeOut(250);
+    };
+  </script>
 </body>
 </html>
