@@ -13,7 +13,7 @@
 
   <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %>">
   <meta property="og:description" content="<%= htmlWebpackPlugin.options.og_description %>">
-  <meta property="og:url" content="https://agile-st.rip/<%= htmlWebpackPlugin.options.image %>">
+  <meta property="og:url" content="https://agile-st.rip/<%= htmlWebpackPlugin.options.slug %>">
   <meta property="og:image" content="https://agile-st.rip/<%= htmlWebpackPlugin.options.image %>">
   <meta name="twitter:card" content="summary_large_image">
   <style>
@@ -299,7 +299,7 @@
     <div class="o-card">
       <div class="o-flex">
         <% if (htmlWebpackPlugin.options.prev_issue) { %>
-        <a href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item o-button">&lt;<span class="u-display-none@mobile"> prev</span></a>
+        <a href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item o-button">&lt; #<%= htmlWebpackPlugin.options.prev_index %> <span class="u-display-none@mobile"> prev</span></a>
         <% } else { %>
         <button href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item" disabled>&lt;<span class="u-display-none@mobile"> prev</span></button>
         <% } %>
@@ -317,7 +317,7 @@
           </div>
         </div>
         <% if (htmlWebpackPlugin.options.next_issue) { %>
-        <a href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item o-button"><span class="u-display-none@mobile">next </span>&gt;</a>
+        <a href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item o-button">#<%= htmlWebpackPlugin.options.next_index %> <span class="u-display-none@mobile">next </span>&gt;</a>
         <% } else { %>
         <button href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item" disabled><span class="u-display-none@mobile">next </span>&gt;</button>
         <% } %>
@@ -325,7 +325,7 @@
     </div>
     <div class="o-card">
       <img src="/<%= htmlWebpackPlugin.options.image %>" class="o-image"/>
-      <h3 class="u-color-muted"><%= htmlWebpackPlugin.options.title %></h3>
+      <h3 class="u-color-muted">#<%= htmlWebpackPlugin.options.current_index %> <%= htmlWebpackPlugin.options.title %></h3>
       <div class="u-color-muted">
       <%= htmlWebpackPlugin.options.description %>
       </div>
@@ -352,7 +352,7 @@
     <div class="o-card">
       <div class="o-flex">
         <% if (htmlWebpackPlugin.options.prev_issue) { %>
-        <a href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item o-button">&lt;<span class="u-display-none@mobile"> prev</span></a>
+        <a href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item o-button">&lt; #<%= htmlWebpackPlugin.options.prev_index %><span class="u-display-none@mobile"> prev</span></a>
         <% } else { %>
         <button href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item" disabled>&lt;<span class="u-display-none@mobile"> prev</span></button>
         <% } %>
@@ -370,7 +370,7 @@
           </div>
         </div>
         <% if (htmlWebpackPlugin.options.next_issue) { %>
-        <a href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item o-button"><span class="u-display-none@mobile">next </span>&gt;</a>
+        <a href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item o-button">#<%= htmlWebpackPlugin.options.next_index %> <span class="u-display-none@mobile">next </span>&gt;</a>
         <% } else { %>
         <button href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item" disabled><span class="u-display-none@mobile">next </span>&gt;</button>
         <% } %>

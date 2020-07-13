@@ -69,7 +69,11 @@ _.each(strips_index, (slug, index) => {
     title: manifest.title,
     image: manifest.image,
     description,
+    slug,
     og_description: og_description,
+    prev_index: index > 0 ? index : undefined,
+    next_index: index + 1 < strips_index.length ? index + 2 : undefined,
+    current_index: index + 1,
     next_issue: index + 1 < strips_index.length ? strips_index[index + 1] : undefined,
     prev_issue: index > 0 ? strips_index[index - 1] : undefined,
   }
