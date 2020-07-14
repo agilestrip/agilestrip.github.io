@@ -312,18 +312,18 @@
     <div class="o-card">
       <div class="o-flex">
         <% if (htmlWebpackPlugin.options.prev_issue) { %>
-        <a href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item o-button">&lt; <span class="u-display-none@mobile"> prev</span> #<%= htmlWebpackPlugin.options.prev_index %></a>
+        <a href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item o-button">&lt; #<%= htmlWebpackPlugin.options.prev_index %></a>
         <% } else { %>
-        <button href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item" disabled>&lt;<span class="u-display-none@mobile"> prev</span></button>
+        <button href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item" disabled>&lt;</button>
         <% } %>
         <div class="o-flex__item o-flex__grow">
           <input type="text" placeholder="Search for an agile strip" id="js-search-top"/>
           <div class="o-overlay o-overlay--bottom o-card" style="display: none;" id="js-results-top"></div>
         </div>
         <% if (htmlWebpackPlugin.options.next_issue) { %>
-        <a href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item o-button">#<%= htmlWebpackPlugin.options.next_index %> <span class="u-display-none@mobile">next </span>&gt;</a>
+        <a href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item o-button">#<%= htmlWebpackPlugin.options.next_index %> &gt;</a>
         <% } else { %>
-        <button href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item" disabled><span class="u-display-none@mobile">next </span>&gt;</button>
+        <button href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item" disabled>&gt;</button>
         <% } %>
       </div>
     </div>
@@ -357,18 +357,18 @@
     <div class="o-card">
       <div class="o-flex">
         <% if (htmlWebpackPlugin.options.prev_issue) { %>
-        <a href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item o-button">&lt; <span class="u-display-none@mobile"> prev</span> #<%= htmlWebpackPlugin.options.prev_index %></a>
+        <a href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item o-button">&lt; #<%= htmlWebpackPlugin.options.prev_index %></a>
         <% } else { %>
-        <button href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item" disabled>&lt;<span class="u-display-none@mobile"> prev</span></button>
+        <button href="/<%= htmlWebpackPlugin.options.prev_issue %>" class="o-flex__item" disabled>&lt;</button>
         <% } %>
         <div class="o-flex__item o-flex__grow">
           <input type="text" placeholder="Search for an agile strip" id="js-search-bottom"/>
           <div class="o-overlay o-overlay--top o-card" style="display: none;" id="js-results-bottom"></div>
         </div>
         <% if (htmlWebpackPlugin.options.next_issue) { %>
-        <a href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item o-button">#<%= htmlWebpackPlugin.options.next_index %> <span class="u-display-none@mobile">next </span>&gt;</a>
+        <a href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item o-button">#<%= htmlWebpackPlugin.options.next_index %> &gt;</a>
         <% } else { %>
-        <button href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item" disabled><span class="u-display-none@mobile">next </span>&gt;</button>
+        <button href="/<%= htmlWebpackPlugin.options.next_issue %>" class="o-flex__item" disabled>&gt;</button>
         <% } %>
       </div>
     </div>
