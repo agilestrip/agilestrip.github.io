@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Agile strip: Single sided development</title>
+  <meta name="description" content="Agile with the best intentions, yet so cold that dies on the spot"/>
+  <meta name="keywords" content="agile,comics,scrum,kanban"/>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,500;0,900;1,400&display=swap" rel="stylesheet">
+
+  <meta property="og:site_name" content="Agile strip">
+
+  <meta property="og:title" content="Single sided development">
+  <meta property="og:description" content="The tasks we are performing tend to get more complex.">
+  <meta property="og:url" content="https://agile-st.rip/single-sided-development">
+  <meta property="og:image" content="https://agile-st.rip/single-sided-development.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    html,body {
+      position: relative;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background-color: #6c6572;
+    }
+
+    body,
+    body *:before,
+    body *:after,
+    body * {
+      box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+    }
+    body * { font-family: inherit; }
+
+    a { color: #4b137c; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .o-button,
+    button {
+      position: relative;
+
+      min-width: 6rem;
+      height: 3rem;
+
+      font-size: 1rem;
+      line-height: 3rem;
+
+      text-align: center;
+
+      color: #ffffff;
+
+      background-color: #4b137c;
+
+      border: none;
+
+      border-radius: 1.5rem;
+    }
+
+    .o-button.is-icon,
+    button.is-icon { min-width: 3rem; }
+
+    .o-button:hover,
+    button:hover {
+      cursor: pointer;
+
+      text-decoration: none;
+
+      background-color: #693894;
+    }
+
+    .o-button:disabled,
+    button:disabled {
+      cursor: default;
+
+      background-color: #8f8e94;
+    }
+
+    input {
+      position: relative;
+      display: block;
+
+      width: 100%;
+
+      height: 3rem;
+
+      font-size: 1em;
+      line-height: 3rem;
+
+      padding: 0 1rem;
+      color: #35343a;
+
+      border: 1px solid #504f53;
+
+      border-radius: 1.5rem;
+    }
+
+    input:disabled {
+      color: #504f53;
+
+      border-color: #dadadb;
+
+      background-color: #dadadb;
+    }
+
+    input::placeholder { color: #8f8e94; }
+
+    .o-button:focus,
+    button:focus,
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 0 1pt #483bf7;
+    }
+
+    .container {
+      position: relative;
+
+      max-width: 780px;
+
+      width: 100%;
+
+      margin: 1em auto;
+    }
+
+    .o-card {
+      position: relative;
+
+      overflow: hidden;
+
+      background-color: #ffffff;
+
+      border-radius: 2em;
+
+      padding: 1em 2em;
+
+      margin: 1em;
+
+      overflow: visible;
+    }
+
+    .o-flex {
+      position: relative;
+      display: flex;
+
+      flex-direction: row;
+
+      align-items: center;
+
+      width: 100%;
+    }
+    .o-flex .o-flex__item { position: relative; margin: 0 0.5em;}
+    .o-flex .o-flex__grow { flex: 1 0 0; -webkit-flex: 1 0 0; }
+
+    .o-image {
+      position: relative;
+
+      display: block;
+
+      width: 90%;
+
+      max-width: 600px;
+
+      margin: 2em auto;
+    }
+
+    .o-overlay {
+      position: absolute;
+
+      width: 100%;
+
+      left: 0;
+
+      margin-left: 0;
+      margin-right: 0;
+
+      z-index: 1;
+
+      box-shadow: 0 0 0.5em #111;
+    }
+
+    .o-overlay.o-overlay--bottom {
+      top: 100%;
+
+      margin-top: 1em;
+    }
+
+    .o-overlay.o-overlay--top {
+      bottom: 100%;
+
+      margin-bottom: 1em;
+    }
+
+    .o-icon {
+      position: relative;
+      display: inline-block;
+      width: 1.5em;
+      height: 1.5em;
+      top: 0.4em;
+      fill: currentColor;
+      vertical-align: inherit;
+    }
+
+    .u-color-primary    { color: #35343a; }
+    .u-color-muted      { color: #504f53; }
+    .u-color-disabled   { color: #8f8e94; }
+
+    .u-textAlign-right  { text-align: right; }
+
+    .u-fontWeight-default   { font-weight: 500; }
+    .u-fontWeight-important { font-weight: 900; }
+
+    .u-section-header   { text-align: center; }
+
+    @media (max-width: 780px) {
+      .o-card { padding: 1em; }
+      .o-image { width: 100%; }
+      .o-button, button { min-width: 3rem; }
+      .u-display-none\@mobile { display: none; }
+    }
+  </style>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172431466-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-172431466-1');
+  </script>
+
+</head>
+<body>
+  <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+    <symbol id="facebook" viewBox="0 0 272 272">
+      <path d="M230.36,29.581H42.64c-6.427,0-11.64,5.213-11.64,11.64v187.721c0,6.435,5.213,11.639,11.64,11.639h101.051
+        v-81.71h-27.509v-31.834h27.509v-23.518c0-27.246,16.651-42.068,40.96-42.068c11.649,0,21.663,0.853,24.582,1.24v28.485h-16.889
+        c-13.188,0-15.755,6.338-15.755,15.57v20.318h31.509l-4.087,31.914H176.59v81.604h53.761c6.445,0,11.649-5.204,11.649-11.639V41.221
+        C242,34.794,236.796,29.581,230.36,29.581"/>
+    </symbol>
+    <symbol id="instagram" viewBox="0 0 272 272">
+      <path d="M136.514,29.554c-28.665,0-32.244,0.132-43.498,0.633c-11.237,0.528-18.887,2.295-25.613,4.907
+        c-6.938,2.69-12.829,6.304-18.694,12.169c-5.865,5.865-9.487,11.747-12.169,18.693c-2.612,6.727-4.388,14.376-4.907,25.613
+        C31.105,102.824,31,106.403,31,135.067c0,28.665,0.132,32.243,0.633,43.498c0.528,11.229,2.295,18.887,4.907,25.613
+        c2.69,6.93,6.304,12.83,12.169,18.693c5.865,5.855,11.747,9.487,18.694,12.169c6.735,2.604,14.384,4.389,25.613,4.907
+        c11.254,0.527,14.833,0.633,43.498,0.633c28.664,0,32.242-0.132,43.497-0.633c11.229-0.527,18.887-2.304,25.612-4.907
+        c6.93-2.689,12.829-6.313,18.694-12.169c5.855-5.863,9.487-11.737,12.17-18.693c2.603-6.727,4.387-14.385,4.905-25.613
+        c0.528-11.255,0.634-14.833,0.634-43.498c0-28.664-0.133-32.243-0.634-43.498c-0.526-11.229-2.303-18.896-4.905-25.613
+        c-2.691-6.938-6.314-12.829-12.17-18.693c-5.865-5.865-11.738-9.487-18.694-12.169c-6.726-2.612-14.384-4.388-25.612-4.907
+        C168.756,29.66,165.178,29.554,136.514,29.554z M136.514,48.546c28.163,0,31.521,0.142,42.645,0.625
+        c10.287,0.484,15.87,2.189,19.582,3.649c4.94,1.908,8.44,4.194,12.15,7.878c3.685,3.693,5.971,7.202,7.879,12.143
+        c1.441,3.71,3.165,9.294,3.631,19.582c0.501,11.132,0.616,14.472,0.616,42.645c0,28.171-0.132,31.522-0.651,42.644
+        c-0.536,10.288-2.251,15.872-3.701,19.582c-1.97,4.942-4.211,8.441-7.905,12.152c-3.684,3.684-7.245,5.971-12.134,7.878
+        c-3.693,1.441-9.363,3.165-19.651,3.631c-11.202,0.502-14.499,0.616-42.725,0.616c-28.233,0-31.531-0.133-42.724-0.65
+        c-10.296-0.536-15.968-2.251-19.661-3.702c-5.003-1.97-8.441-4.213-12.125-7.904c-3.702-3.685-6.067-7.246-7.914-12.135
+        c-1.451-3.693-3.156-9.364-3.692-19.652c-0.396-11.079-0.537-14.499-0.537-42.591c0-28.101,0.141-31.531,0.537-42.741
+        c0.536-10.288,2.242-15.951,3.692-19.643c1.847-5.012,4.212-8.441,7.914-12.143c3.684-3.684,7.122-6.058,12.125-7.896
+        c3.693-1.46,9.242-3.174,19.529-3.702c11.211-0.396,14.509-0.528,42.724-0.528L136.514,48.546z M136.514,80.886
+        c-29.94,0-54.182,24.269-54.182,54.181c0,29.94,24.268,54.181,54.182,54.181c29.939,0,54.18-24.269,54.18-54.181
+        C190.693,105.127,166.426,80.886,136.514,80.886z M136.514,170.238c-19.433,0-35.171-15.739-35.171-35.171
+        c0-19.432,15.739-35.171,35.171-35.171c19.432,0,35.171,15.739,35.171,35.171C171.685,154.499,155.945,170.238,136.514,170.238z
+        M205.502,78.75c0,6.991-5.682,12.662-12.662,12.662c-6.99,0-12.661-5.681-12.661-12.662c0-6.981,5.679-12.653,12.661-12.653
+        C199.812,66.088,205.502,71.768,205.502,78.75z"/>
+    </symbol>
+    <symbol id="linkedin" viewBox="0 0 272 272">
+      <path d="M210.694,209.399h-31.233v-48.942c0-11.671-0.236-26.69-16.275-26.69c-16.285,0-18.771,12.699-18.771,25.829
+      v49.804h-31.235V108.755h30.003v13.719h0.404c4.192-7.91,14.387-16.258,29.617-16.258c31.646,0,37.499,20.828,37.499,47.94v55.243
+      H210.694z M77.903,94.984c-10.054,0-18.13-8.139-18.13-18.148c0-10.001,8.085-18.13,18.13-18.13c10.018,0,18.139,8.129,18.139,18.13
+      C96.042,86.846,87.913,94.984,77.903,94.984z M93.563,209.399H62.242V108.755h31.321V209.399z M226.32,29.661H46.564
+      C37.96,29.661,31,36.463,31,44.855v180.529c0,8.402,6.96,15.195,15.564,15.195h179.729c8.595,0,15.626-6.793,15.626-15.195V44.855
+      c0-8.393-7.031-15.195-15.626-15.195H226.32z"/>
+    </symbol>
+    <symbol id="link" viewBox="0 0 272 272">
+      <path d="M234.923,40.723l-0.868-0.869c-20.054-20.052-52.918-20.052-72.971,0.023l-46.522,46.5
+        c-20.075,20.075-20.075,52.917,0,72.993l0.869,0.867c1.671,1.672,3.453,3.188,5.28,4.567l17.022-17.021
+        c-1.982-1.181-3.854-2.586-5.569-4.278l-0.869-0.869c-10.896-10.896-10.896-28.63,0-39.526l46.522-46.5
+        c10.895-10.896,28.631-10.896,39.525,0l0.869,0.869c10.896,10.896,10.896,28.631,0,39.526l-21.033,21.033
+        c3.654,9.024,5.393,18.627,5.236,28.23l32.529-32.53C254.998,93.662,254.998,60.797,234.923,40.723z M166.186,107.743
+        c-1.67-1.671-3.452-3.186-5.28-4.567l-17.021,17.022c1.983,1.181,3.854,2.584,5.569,4.278l0.869,0.869
+        c10.896,10.894,10.896,28.63,0,39.526L103.8,211.395c-10.895,10.895-28.631,10.895-39.526,0l-0.869-0.871
+        c-10.896-10.894-10.896-28.63,0-39.524l21.033-21.034c-3.654-9.023-5.392-18.626-5.236-28.229l-32.53,32.529
+        c-20.075,20.074-20.075,52.918,0,72.992l0.869,0.869c20.075,20.073,52.917,20.073,72.993,0l46.5-46.501
+        c20.074-20.074,20.074-52.917,0-72.991L166.186,107.743z"/>
+    </symbol>
+    <symbol id="twitter" viewBox="0 0 272 272">
+      <path d="M263.263,56.884c-9.272,4.077-19.176,6.854-29.6,8.121c10.625-6.402,18.797-16.492,22.664-28.532
+        c-9.965,5.815-21.01,10.049-32.766,12.406c-9.389-10.048-22.769-16.335-37.627-16.335c-28.47,0-51.553,23.083-51.553,51.521
+        c0,4.086,0.472,8.016,1.331,11.778C92.857,93.82,54.873,73.241,29.453,42.131c-4.474,7.565-6.978,16.356-6.978,25.934
+        c0,17.917,9.117,33.667,22.927,42.918c-8.457-0.273-16.41-2.598-23.346-6.454v0.639c0,24.99,17.739,45.831,41.346,50.577
+        c-4.327,1.164-8.895,1.793-13.579,1.793c-3.291,0-6.444-0.315-9.598-0.901c6.611,20.464,25.618,35.385,48.241,35.804
+        c-17.604,13.821-39.911,22.057-63.938,22.057c-4.086,0-8.163-0.24-12.26-0.703c22.937,14.607,49.96,23.147,79.184,23.147
+        c94.868,0,146.684-78.544,146.684-146.548c0-2.189,0-4.401-0.158-6.602c10.071-7.219,18.862-16.345,25.777-26.698L263.263,56.884
+        L263.263,56.884z"/>
+    </symbol>
+    </defs>
+  </svg>
+  <div class="container">
+    <div class="o-card">
+      <div class="o-flex">
+        <img src="/agile-strip.jpg" class="o-flex__item" width="80px"/>
+        <div class="o-flex__item o-flex__grow">
+          <h1 class="u-color-primary">AGILE ST.RIP</h1>
+          <p class="u-color-muted">Agile with the best intentions, yet so cold that dies on the spot</p>
+        </div>
+      </div>
+    </div>
+    <div class="o-card">
+      <div class="o-flex">
+        
+        <a href="/new-feature" class="o-flex__item o-button">&lt; #6</a>
+        
+        <div class="o-flex__item o-flex__grow">
+          <input type="text" placeholder="Search for an agile strip" id="js-search-top"/>
+          <div class="o-overlay o-overlay--bottom o-card" style="display: none;" id="js-results-top"></div>
+        </div>
+        
+        <a href="/communication-breakdown" class="o-flex__item o-button">#8 &gt;</a>
+        
+      </div>
+    </div>
+    <div class="o-card">
+      <img src="/single-sided-development.jpg" class="o-image"/>
+      <div class="u-color-default u-textAlign-right"><sub>#7</sub></div>
+      <h3 class="u-color-muted">Single sided development</h3>
+      <div class="u-color-muted">
+      <p>The tasks we are performing tend to get more complex.
+We often deep dive into some parts of the task and forget other parts of the task.
+When this happens you need to make this a learning experience.</p>
+
+      </div>
+      <p>&nbsp;</p>
+      <div class="o-flex">
+        <div class="o-flex__item u-color-disabled">Image permalink:</div>
+        <div class="o-flex__item o-flex__grow">
+          <input type="text" value="https://agile-st.rip/single-sided-development.jpg" disabled />
+        </div>
+      </div>
+      <p></p>
+      <div class="o-flex">
+        <div class="o-flex__item u-color-disabled">Share:</div>
+        <div class="o-flex__item o-flex__grow">
+          <button class="is-icon" title="Share on Linkedin" onclick="window.shareLinkedin()"><svg class="o-icon"><use xlink:href="#linkedin"/></svg></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;<button class="is-icon" title="Share on Facebook" onclick="window.shareFacebook()"><svg class="o-icon"><use xlink:href="#facebook"/></svg></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;<button class="is-icon" title="Share on Twitter" onclick="window.shareTwitter()"><svg class="o-icon"><use xlink:href="#twitter"/></svg></button>
+          &nbsp;&nbsp;&nbsp;&nbsp;<button class="is-icon" title="Copy link to page" onclick="window.copyURL()"><svg class="o-icon"><use xlink:href="#link"/></svg></button>
+          <span class="js-copy-message" style="display: none;">✅ copied to clipboard</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="o-card">
+      <div class="o-flex">
+        
+        <a href="/new-feature" class="o-flex__item o-button">&lt; #6</a>
+        
+        <div class="o-flex__item o-flex__grow">
+          <input type="text" placeholder="Search for an agile strip" id="js-search-bottom"/>
+          <div class="o-overlay o-overlay--top o-card" style="display: none;" id="js-results-bottom"></div>
+        </div>
+        
+        <a href="/communication-breakdown" class="o-flex__item o-button">#8 &gt;</a>
+        
+      </div>
+    </div>
+
+    <div class="o-card">
+      <p class="u-color-default">All work here is licensed under <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC attribution non-commercial 2.5</a> licence.</p>
+      <p class="u-color-muted"><small>Layout is heavily inspired by <a href="https://www.xkcd.com" target="_blank" rel="nofollow, noreferrer">xkcd.com</a> ❤️ Thank you for your relatable comics and messages all these years!</small></p>
+      <p class="u-color-disabled"><small>Website is sponsored by <a href="https://www.teamoclock.com">Team O'clock</a>.</small></p>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    var share_url = 'https://agile-st.rip/single-sided-development';
+    function copyToClipboard(str) {
+      var el = document.createElement('textarea');
+      el.value = str;
+      el.setAttribute('readonly', '');
+      el.style.position = 'absolute';
+      el.style.left = '-9999px';
+      document.body.appendChild(el);
+      var selected = document.getSelection().rangeCount > 0
+        ? document.getSelection().getRangeAt(0)
+        : false;
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      if (selected) {
+        document.getSelection().removeAllRanges();
+        document.getSelection().addRange(selected);
+      }
+    }
+    function share(url) {
+      window.open(url, 'sharer', 'toolbar=0,status=0,width=600,height=400');
+    }
+    window.shareFacebook = function() {
+      share(
+        'https://www.facebook.com/sharer.php?' +
+        'u=' + encodeURIComponent(share_url)
+      );
+    };
+    window.shareTwitter = function() {
+      share(
+        'https://twitter.com/share?' +
+        'url=' + encodeURIComponent(share_url) +
+        '&text=' + encodeURIComponent('The tasks we are performing tend to get more complex.' + ' #agile #scrum #comics #agilestrip')
+      );
+    };
+    window.shareLinkedin = function() {
+      share(
+        'https://www.linkedin.com/shareArticle?' +
+        'mini=true&' +
+        'url=' + encodeURIComponent(share_url) +
+        '&title=' + encodeURIComponent('Single sided development') +
+        '&summary=' + encodeURIComponent('The tasks we are performing tend to get more complex.' + ' #agile #scrum #comics #agilestrip')
+      );
+    };
+    window.copyURL = function() {
+      copyToClipboard(share_url);
+      $('.js-copy-message').fadeIn(100).delay(1450).fadeOut(250);
+    };
+
+    // ------- Search -------
+
+    var search = JSON.parse('[{\u0022slug\u0022:\u0022inspect\u002Dand\u002Dadapt\u0022,\u0022image\u0022:\u0022inspect\u002Dand\u002Dadapt.jpg\u0022,\u0022index\u0022:1,\u0022title\u0022:\u0022Inspect and adapt\u0022,\u0022text\u0022:\u0022inspect and adapt being agile, reacting and adapting to situations can be dangerous too!!\u005Cnsome processes that you think will make you move faster and better might prove big boulders!\u005Cn\u0022},{\u0022slug\u0022:\u0022scope\u002Dcreep\u0022,\u0022image\u0022:\u0022scope\u002Dcreep.jpg\u0022,\u0022index\u0022:2,\u0022title\u0022:\u0022Scope creep\u0022,\u0022text\u0022:\u0022scope creep this is a constant threat that can catch you off\u002Dguard at any time!\u005Cnbeware of that beast especially when you have reached a good pace delivering work!\u005Cn\u0022},{\u0022slug\u0022:\u0022output\u002Dvs\u002Doutcome\u0022,\u0022image\u0022:\u0022output\u002Dvs\u002Doutcome.jpg\u0022,\u0022index\u0022:3,\u0022title\u0022:\u0022Output vs. Outcome\u0022,\u0022text\u0022:\u0022output vs. outcome if there are multiple steps involved in a task, it\u0027s better to deliver a more rough whole journey than an awesome first step.\u005Cnno one will be able to fullfil the task with just an awesome first step!\u005Cn\u0022},{\u0022slug\u0022:\u0022spread\u002Dtoo\u002Dthin\u0022,\u0022image\u0022:\u0022spread\u002Dtoo\u002Dthin.jpg\u0022,\u0022index\u0022:4,\u0022title\u0022:\u0022Spread too thin\u0022,\u0022text\u0022:\u0022spread too thin it\u0027s important to focus your company efforts towards a single direction.\u005Cnotherwise everyone will be dragging to a different point, and no one will be moving significantly towards any direction.\u005Cn\u005Cn*if you hear of an initiative for the first time mid\u002Dquarter, that\u0027s an indicator that maybe you are spread too thin!*\u0022},{\u0022slug\u0022:\u0022next\u002Dticket\u0022,\u0022image\u0022:\u0022captain\u002Dproduct\u002Dnextticket.jpg\u0022,\u0022index\u0022:5,\u0022title\u0022:\u0022Next ticket\u0022,\u0022text\u0022:\u0022next ticket there are times a team member does not work on the most impactful way, most probably because some clarity or information is missing!\u005Cn\u005Cnwhat you can do:\u005Cn\u002D **inform** team on what you are about to start working\u005Cn\u002D **ask** \u005C\u0022why are we doing this?\u005C\u0022 when you are missing details\u005Cn\u002D **bring clarity** and more details if you have them\u005Cn\u0022},{\u0022slug\u0022:\u0022new\u002Dfeature\u0022,\u0022image\u0022:\u0022new\u002Dfeature.jpg\u0022,\u0022index\u0022:6,\u0022title\u0022:\u0022New feature\u0022,\u0022text\u0022:\u0022new feature a new feature is always shiny and clean of bugs and missing functionality!\u005Cnyet the true life of a feature starts when real people start using it!\u005Cnthat\u0027s when you and your team needs to be on top of bugs and issues that pop up!\u0022},{\u0022slug\u0022:\u0022single\u002Dsided\u002Ddevelopment\u0022,\u0022image\u0022:\u0022single\u002Dsided\u002Ddevelopment.jpg\u0022,\u0022index\u0022:7,\u0022title\u0022:\u0022Single sided development\u0022,\u0022text\u0022:\u0022single sided development the tasks we are performing tend to get more complex.\u005Cnwe often deep dive into some parts of the task and forget other parts of the task.\u005Cnwhen this happens you need to make this a learning experience.\u005Cn\u0022},{\u0022slug\u0022:\u0022communication\u002Dbreakdown\u0022,\u0022image\u0022:\u0022communication\u002Dbreakdown.jpg\u0022,\u0022index\u0022:8,\u0022title\u0022:\u0022Communication breakdown\u0022,\u0022text\u0022:\u0022communication breakdown each team member could make some assumptions that helps them into taking action.\u005Cnwhen these assumption do not align, the actions are all over the place and un\u002Daligned.\u005Cnit\u0027s good to detect these cases early on, and a good mechanism to do that is scrum rituals like standups and retrospectives.\u005Cn\u0022},{\u0022slug\u0022:\u0022quality\u002Dof\u002Dtasks\u002Ddelivered\u0022,\u0022image\u0022:\u0022quality\u002Dof\u002Dtasks\u002Ddelivered.jpg\u0022,\u0022index\u0022:9,\u0022title\u0022:\u0022Quality of task delivered\u0022,\u0022text\u0022:\u0022quality of task delivered this is a tool/idea on checking in your work time.\u005Cnthe more tasks you are working on, the less time you have available to work on each task, affecting the quality of your work.\u005Cn\u005Cna suggested exercise is to do a weekly check\u002Din on where is your current position in the chart,\u005Cnand where was you position the previous week. this way you can see where you are trending to.\u005Cn\u0022},{\u0022slug\u0022:\u0022roadmap\u002Dcycle\u0022,\u0022image\u0022:\u0022the\u002Droadmap\u002Dcycle.jpg\u0022,\u0022index\u0022:10,\u0022title\u0022:\u0022The roadmap cycle\u0022,\u0022text\u0022:\u0022the roadmap cycle adapting your roadmap needs a birds\u002Deye view to avoid running in cycles!\u005Cn\u005Cnpick a roadmap method that fit your teams and try sticking to it before changing it again soon.\u005Cn\u0022},{\u0022slug\u0022:\u0022the\u002Dwatchtower\u0022,\u0022image\u0022:\u0022the\u002Dwatchtower.jpg\u0022,\u0022index\u0022:11,\u0022title\u0022:\u0022The watchtower\u0022,\u0022text\u0022:\u0022the watchtower a leader\u0027s job is to keep the direction on course.\u005Cnit\u0027s the leader\u0027s work, repetition, and resilience that the whole crew is waiting for.\u005Cnfailing to stick in a direction, and provide the required correction course can easily sidetrack the whole effort.\u0022},{\u0022slug\u0022:\u0022loudest\u002Din\u002Dthe\u002Droom\u0022,\u0022image\u0022:\u0022loudest\u002Din\u002Dthe\u002Droom.jpg\u0022,\u0022index\u0022:12,\u0022title\u0022:\u0022The loudest in the room\u0022,\u0022text\u0022:\u0022the loudest in the room leaving the loudest one in the room to take over the meeting is doing good to nobody.\u005Cnwhether you are the loudest one, or a colleague you will surely end up:\u005Cn\u002D mentally drained\u005Cn\u002D equally or less uncertain about the outcome\u005Cn\u002D with a biased decision based on the loudest person, rather than common understanding\u0022}]');
+    function bindSearch(el_input, el_results) {
+      $(el_input).keyup(function() {
+        var text = ($.trim($(this).val())).toLowerCase();
+        if (!text) {
+          $(el_results).hide();
+        } else {
+          var html = '';
+          $.each(search, function(index, value) {
+            if (value.text.indexOf(text) >= 0) {
+              html += [
+              '<a href="/' + value.slug + '" class="o-flex">',
+              '  <img src="/' + value.image + '" class="o-flex__item" width="80px"/>',
+              '  <p class="o-flex__item o-flex__grow">#' + value.index + ' ' + value.title + '</p>',
+              '</a>'
+              ].join('\n');
+            }
+          });
+          if (html) {
+            $(el_results).html(html);
+            $(el_results).show();
+          } else {
+            $(el_results).hide();
+          }
+        }
+      });
+    }
+
+    bindSearch('#js-search-top', '#js-results-top');
+    bindSearch('#js-search-bottom', '#js-results-bottom');
+  </script>
+<script type="text/javascript" src="/js/index.min.js"></script></body>
+</html>
